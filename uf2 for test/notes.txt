@@ -1,1 +1,5 @@
+These are the custom UF2s that we will share as part of the ROBO-SOCCER workshops
 
+Details : 
+
+robosoccer-test-1.uf2

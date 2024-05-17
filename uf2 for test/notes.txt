@@ -2,4 +2,10 @@ These are the custom UF2s that we will share as part of the ROBO-SOCCER workshop
 
 Details : 
 
+RPI_PICO_W-20240222-v1.22.2.uf2
+This is the basic MicroPython uf2 which you can use to code the Pico W in MicroPython
+
 robosoccer-test-1.uf2
+This is the robosoccer-test-1.uf2 that was used to test the wireless blinky in the 15th May 7PM workshop.
+In the workshop we had renamed it to robo_soccer.uf2 for ease of use in the workshop.
+Here we named it as a first in the series of different uf2s that we will release here.

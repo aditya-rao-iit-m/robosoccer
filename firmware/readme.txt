@@ -1,2 +1,2 @@
 Micropython firmware for the Raspberry Pi Pico WH
-RPI_PICO_W-20240222-v1.22.2.uf2
+RPI_PICO_W-20240602-v1.23.0.uf2

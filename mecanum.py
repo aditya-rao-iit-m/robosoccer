@@ -5,6 +5,8 @@ import time
 import random
 from machine import Pin, PWM
 
+#mecanum code 202405271752 v1 success
+
 # Create an LED object on pin 'LED'
 led = Pin('LED', Pin.OUT)
 
@@ -52,28 +54,31 @@ def move_stop():
     motor_d_forward.value(0)
     motor_c_backward.value(0)
     motor_d_backward.value(0)
-    
-def move_right():
-    motor_a_forward.value(1)
-    motor_b_forward.value(0)
-    motor_a_backward.value(0)
-    motor_b_backward.value(1)
-    motor_c_forward.value(0)
-    motor_d_forward.value(1)
-    motor_c_backward.value(1)
-    motor_d_backward.value(0)
 
+#strafe left
+# b fl f
+# a fr b
+# d bl f
+# c br b
+   
+    
 def move_left():
     motor_a_forward.value(0)
     motor_b_forward.value(1)
     motor_a_backward.value(1)
     motor_b_backward.value(0)
-    motor_c_forward.value(1)
-    motor_d_forward.value(0)
-    motor_c_backward.value(0)
-    motor_d_backward.value(1)
-    
-def spin_right():
+    motor_c_forward.value(0)
+    motor_d_forward.value(1)
+    motor_c_backward.value(1)
+    motor_d_backward.value(0)
+
+#strafe right
+# b fl b
+# a fr f
+# d bl b
+# c br f
+
+def move_right():
     motor_a_forward.value(1)
     motor_b_forward.value(0)
     motor_a_backward.value(0)
@@ -82,10 +87,71 @@ def spin_right():
     motor_d_forward.value(0)
     motor_c_backward.value(0)
     motor_d_backward.value(1)
-    time.sleep(0.1)
+    
+#spin left
+# b fl b
+# a fr f
+# d bl f
+# c br b
+
+def spin_left():
+    motor_a_forward.value(1)
+    motor_b_forward.value(0)
+    motor_a_backward.value(0)
+    motor_b_backward.value(1)
+    motor_c_forward.value(0)
+    motor_d_forward.value(1)
+    motor_c_backward.value(1)
+    motor_d_backward.value(0)
+    time.sleep(5.0)
     move_stop()
     
-def spin_left():
+
+#spin right
+# b fl f
+# a fr b
+# d bl b
+# c br f
+
+def spin_right():
+    motor_a_forward.value(0)
+    motor_b_forward.value(1)
+    motor_a_backward.value(1)
+    motor_b_backward.value(0)
+    motor_c_forward.value(1)
+    motor_d_forward.value(0)
+    motor_c_backward.value(0)
+    motor_d_backward.value(1)
+    time.sleep(5.0)
+    move_stop() 
+   
+   
+#tiny left
+# b fl b
+# a fr f
+# d bl b
+# c br f
+
+def tiny_left():
+    motor_a_forward.value(1)
+    motor_b_forward.value(0)
+    motor_a_backward.value(0)
+    motor_b_backward.value(1)
+    motor_c_forward.value(1)
+    motor_d_forward.value(0)
+    motor_c_backward.value(0)
+    motor_d_backward.value(1)
+    time.sleep(0.7)
+    move_stop()
+    
+
+#tiny right
+# b fl f
+# a fr b
+# d bl f
+# c br b
+
+def tiny_right():
     motor_a_forward.value(0)
     motor_b_forward.value(1)
     motor_a_backward.value(1)
@@ -94,20 +160,16 @@ def spin_left():
     motor_d_forward.value(1)
     motor_c_backward.value(1)
     motor_d_backward.value(0)
-    time.sleep(0.1)
-    move_stop()    
+    time.sleep(0.7)
+    move_stop() 
+   
+#f-rd
+# b fl f
+# a fr 0
+# d bl 0
+# c br f
 
 def diagonal_right_forward():
-    motor_a_forward.value(1)
-    motor_b_forward.value(0)
-    motor_a_backward.value(0)
-    motor_b_backward.value(0)
-    motor_c_forward.value(0)
-    motor_d_forward.value(1)
-    motor_c_backward.value(0)
-    motor_d_backward.value(0)
-
-def diagonal_left_forward():
     motor_a_forward.value(0)
     motor_b_forward.value(1)
     motor_a_backward.value(0)
@@ -116,7 +178,29 @@ def diagonal_left_forward():
     motor_d_forward.value(0)
     motor_c_backward.value(0)
     motor_d_backward.value(0)
+
+#f-ld
+# b fl 0
+# a fr f
+# d bl f
+# c br 0
+
+def diagonal_left_forward():
+    motor_a_forward.value(1)
+    motor_b_forward.value(0)
+    motor_a_backward.value(0)
+    motor_b_backward.value(0)
+    motor_c_forward.value(0)
+    motor_d_forward.value(1)
+    motor_c_backward.value(0)
+    motor_d_backward.value(0)
     
+#b-rd
+# b fl b
+# a fr 0
+# d bl 0
+# c br b
+
 def diagonal_right_backward():
     motor_a_forward.value(0)
     motor_b_forward.value(0)
@@ -126,6 +210,12 @@ def diagonal_right_backward():
     motor_d_forward.value(0)
     motor_c_backward.value(1)
     motor_d_backward.value(0)
+
+#b-ld
+# b fl 0
+# a fr b
+# d bl b
+# c br 0
 
 def diagonal_left_backward():
     motor_a_forward.value(0)
@@ -157,22 +247,32 @@ def webpage(random_value, state):
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Aditya Rao - Mecanum - Paradox'24 Workshop</title>
+            <title>Aditya Rao - Paradox'24 Workshop</title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
         </head>
         <body>
             <h1 align="center">ROBO SOCCER WIFI CONTROL</h1>
-            <h2 align="center">Control</h2>
+            <h2 align="center">Aditya Rao - Mecanum v2</h2>
             <table align="center">
             <tr>
                 <td>
-                    <form action="./lighton">
-                        <input type="submit" value="Light on" style="width:120px; height:120px;"/>
+                    <form action="./spinleft">
+                        <input type="submit" value="Spin Left" style="width:70px; height:70px;"/>
                     </form>
                 </td>
                 <td>
-                    <form action="./lightoff">
-                        <input type="submit" value="Light off" style="width:120px; height:120px;"/>
+                    <form action="./tinyleft">
+                        <input type="submit" value="Tiny Left" style="width:70px; height:70px;"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="./tinyright">
+                        <input type="submit" value="Tiny Right" style="width:70px; height:70px;"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="./spinright">
+                        <input type="submit" value="Spin Right" style="width:70px; height:70px;"/>
                     </form>
                 </td>
             </tr>
@@ -181,83 +281,90 @@ def webpage(random_value, state):
             <table align="center">
 			<tr>
 				<td>
-					<form action="./forwardleftdiagonal">
-                        <input type="submit" value="Forward Left Diagonal" style="width:120px; height:120px;"/>
+					<form action="./fld">
+                        <input type="submit" value="F-LD" style="width:100px; height:100px;"/>
                     </form>
 				</td>
 				<td>
                     <form action="./forward">
-                        <input type="submit" value="Forward" style="width:120px; height:120px;"/>
+                        <input type="submit" value="Forward" style="width:100px; height:100px;"/>
                     </form>
                 </td>
 				<td>
-					<form action="./forwardrightdiagonal">
-                        <input type="submit" value="Forward Right Diagonal" style="width:120px; height:120px;"/>
+					<form action="./frd">
+                        <input type="submit" value="F-RD" style="width:100px; height:100px;"/>
                     </form>
 				</td>
 			</tr>
             <tr>                
                 <td>
                     <form action="./left">
-                        <input type="submit" value="Left" style="width:120px; height:120px;"/>
+                        <input type="submit" value="Left" style="width:100px; height:100px;"/>
                     </form>
                 </td>
 				<td>
                     <form action="./stop">
-                        <input type="submit" value="Stop" style="width:120px; height:120px;"/>
+                        <input type="submit" value="Stop" style="width:100px; height:100px;"/>
                     </form>
                 </td>
                 <td>
                     <form action="./right">
-                        <input type="submit" value="Right" style="width:120px; height:120px;"/>
+                        <input type="submit" value="Right" style="width:100px; height:100px;"/>
                     </form>
                 </td>
             </tr>
 			<tr>
 				<td>
-					<form action="./backwardleftdiagonal">
-                        <input type="submit" value="Backward Left Diagonal" style="width:120px; height:120px;"/>
+					<form action="./bld">
+                        <input type="submit" value="B-LD" style="width:100px; height:100px;"/>
                     </form>
 				</td>
 				<td>
                     <form action="./backward">
-                        <input type="submit" value="Backward" style="width:120px; height:120px;"/>
+                        <input type="submit" value="Backward" style="width:100px; height:100px;"/>
                     </form>
                 </td>
 				<td>
-					<form action="./backwardrightdiagonal">
-                        <input type="submit" value="Backward Right Diagonal" style="width:120px; height:120px;"/>
+					<form action="./brd">
+                        <input type="submit" value="B-RD" style="width:100px; height:100px;"/>
                     </form>
 				</td>
 			</tr>
             </table>
             <br />
 			<table align="center">
-            <tr>
+			<tr>
                 <td>
-                    <form action="./leftrotate">
-                        <input type="submit" value="Left Rotate" style="width:120px; height:120px;"/>
+                    <form action="./ledon">
+                        <input type="submit" value="LED on" style="width:100px; height:100px;"/>
                     </form>
                 </td>
                 <td>
-                    <form action="./rightrotate">
-                        <input type="submit" value="Right Rotate" style="width:120px; height:120px;"/>
+                    <form action="./ledoff">
+                        <input type="submit" value="LED off" style="width:100px; height:100px;"/>
                     </form>
                 </td>
             </tr>
+            </table>
             
             <br />
-            
             <p align="center">Status: {state}</p>
-			</table>
-			<table align="center"><tr><td>
-            <h2 align="center">Fetch New Value</h2>
-			</td></tr><tr align="center"><td>
-            <form action="./value">
-                <input type="submit" value="Fetch value" style="width:120px; height:120px;"/>
-            </form>
-            <p align="center">Fetched value: {random_value}</p>
-			</td></tr></table>
+			
+			<table align="center">
+			<tr>
+                <td>
+                <h2 align="center">Fetch New Value</h2>
+                </td>
+            </tr>
+            <tr align="center">
+                <td>
+                <form action="./value">
+                <input type="submit" value="Fetch value" style="width:100px; height:100px;"/>
+                </form>
+                <p align="center">Fetched value: {random_value}</p>
+                </td>
+            </tr>
+            </table>
         </body>
         </html>
         """
@@ -316,11 +423,11 @@ while True:
             pass
         
         # Process the request and update variables
-        if request == '/lighton?':
+        if request == '/ledon?':
             print("LED on")
             led.value(1)
             state = "ON"
-        elif request == '/lightoff?':
+        elif request == '/ledoff?':
             led.value(0)
             state = 'OFF'
         elif request == '/forward?':
@@ -338,22 +445,28 @@ while True:
         elif request == '/right?':
             move_right()
             state = 'Right'
-        elif request == '/leftrotate?':
+        elif request == '/tinyleft?':
+            tiny_left()
+            state = 'Tiny Left'
+        elif request == '/tinyright?':
+            tiny_right()
+            state = 'Tiny Right'
+        elif request == '/spinleft?':
             spin_left()
-            state = 'Spin left'
-        elif request == '/rightrotate?':
+            state = 'Spin Left'
+        elif request == '/spinright?':
             spin_right()
-            state = 'Spin right'
-        elif request == '/backwardrightdiagonal?':
+            state = 'Spin Right'
+        elif request == '/brd?':
              diagonal_right_backward()
              state = 'Backward right diagnal'
-        elif request == '/backwardleftdiagonal?':
+        elif request == '/bld?':
              diagonal_left_backward()
              state = 'Backward left diagnal'
-        elif request == '/forwardrightdiagonal?':
+        elif request == '/frd?':
              diagonal_right_forward()
              state = 'forward right diagnal'
-        elif request == '/forwardleftdiagonal?':
+        elif request == '/fld?':
              diagonal_left_forward()
              state = 'forward left diagnal'
         elif request == '/zigzag?':

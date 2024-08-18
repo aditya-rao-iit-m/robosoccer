@@ -114,7 +114,8 @@ def webpage(random_value, state):
             <br />
             
             <p>Status: {state}</p>
-            <h2>Fetch a Random Number - Webserver Test</h2>
+            <h2>Fetch a Random Number</h2>
+            <h3>Webserver Test<h3>
             <form action="./value">
                 <input type="submit" value="Fetch value" style="width:120px; height:120px;"/>
             </form>

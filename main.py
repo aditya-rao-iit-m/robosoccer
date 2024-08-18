@@ -59,8 +59,8 @@ def webpage(random_value, state):
             <meta name="viewport" content="width=device-width, initial-scale=1">
         </head>
         <body>
-            <h1>ROBO SOCCER WIFI CONTROL</h1>
-            <h2>Control</h2>
+            <h1>ROBOT WIFI CONTROL</h1>
+            
             <table>
             <tr>
                 <td>
@@ -91,9 +91,11 @@ def webpage(random_value, state):
             </tr>
             <tr>
                 <td colspan=2>
+                <center>
                     <form action="./stop">
                         <input type="submit" value="Stop" style="width:120px; height:120px;"/>
                     </form>
+                </center>
                 </td>
             </tr>
             <tr>
@@ -112,7 +114,7 @@ def webpage(random_value, state):
             <br />
             
             <p>Status: {state}</p>
-            <h2>Fetch New Value</h2>
+            <h2>Fetch a Random Number - Webserver Test</h2>
             <form action="./value">
                 <input type="submit" value="Fetch value" style="width:120px; height:120px;"/>
             </form>

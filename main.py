@@ -88,11 +88,15 @@ def webpage(random_value, state):
                         <input type="submit" value="Backward" style="width:120px; height:120px;"/>
                     </form>
                 </td>
+            </tr>
+            <tr>
                 <td>
                     <form action="./stop">
                         <input type="submit" value="Stop" style="width:120px; height:120px;"/>
                     </form>
                 </td>
+            </tr>
+            <tr>
                 <td>
                     <form action="./left">
                         <input type="submit" value="Left" style="width:120px; height:120px;"/>

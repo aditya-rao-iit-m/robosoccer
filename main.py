@@ -90,7 +90,7 @@ def webpage(random_value, state):
                 </td>
             </tr>
             <tr>
-                <td>
+                <td colspan=2>
                     <form action="./stop">
                         <input type="submit" value="Stop" style="width:120px; height:120px;"/>
                     </form>

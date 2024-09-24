@@ -252,7 +252,7 @@ def webpage(random_value, state):
         </head>
         <body>
             <h1 align="center">ROBO SOCCER WIFI CONTROL</h1>
-            <h2 align="center">Aditya Rao - Mecanum v2</h2>
+            <h2 align="center">Aditya Rao - Regular v2</h2>
             <table align="center">
             <tr>
                 <td>

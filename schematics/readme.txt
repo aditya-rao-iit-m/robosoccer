@@ -1,1 +1,0 @@
-The wiring diagrams.

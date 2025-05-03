@@ -186,7 +186,7 @@ while True:
             led.value(0)
             state = 'OFF'
         elif request == '/forward?':
-            move_left()
+            move_forward()
             state = 'Forward'
         elif request == '/backward?':
             move_right()
@@ -194,7 +194,7 @@ while True:
             move_stop()
             state = 'Stop'
         elif request == '/left?':
-            move_forward()
+            move_left()
             state = 'Left'
         elif request == '/right?':
             move_backward()
